@@ -46,5 +46,6 @@ public class Main {
                 System.out.println("8. " + recipe8);
                 System.out.println("9. " + recipe9);
                 System.out.println("10. " + recipe10);
+                System.out.println("결과출력완료");
             }
 }
