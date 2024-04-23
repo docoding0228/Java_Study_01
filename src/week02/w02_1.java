@@ -1,6 +1,6 @@
 package week02;
 
-public class w01 {
+public class w02_1 {
     public static void main(String[] args) {
 
 //     // x + y = z

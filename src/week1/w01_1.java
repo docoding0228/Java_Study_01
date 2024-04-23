@@ -1,8 +1,8 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
+package week1;
+
 import java.util.Scanner;
 
-public class Main {
+public class w01_1 {
             public static void main(String[] args) {
 
                 // [JDK] :
