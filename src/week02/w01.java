@@ -87,7 +87,6 @@ public class w01 {
 //        System.out.println("c = a--; 이니 11을 그대로 가져감.");
 //        System.out.println("c = a--; 이니 11을 그대로 가져감.");
 
-
         System.out.println("===========삼항 연산자============");
         // 삼항 연산자
         int q = 1;
