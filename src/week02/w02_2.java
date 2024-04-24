@@ -1,7 +1,8 @@
+package week02;
+
 // 조건문으로 가위바위보 만들기
 import java.util.Objects;
 import java.util.Scanner;
-
 public class w02_2{
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
