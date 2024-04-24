@@ -1,2 +1,6 @@
-package week02;public class w02_2 {
+package week02;
+
+public class w02_2 {
+
+
 }
