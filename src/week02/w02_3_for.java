@@ -1,6 +1,6 @@
 package week02;
 
-public class w02_3 {
+public class w02_3_for {
 
 
     public static void main(String[] args) {

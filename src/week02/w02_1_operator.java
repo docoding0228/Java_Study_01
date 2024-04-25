@@ -1,6 +1,6 @@
 package week02;
 
-public class w02_1 {
+public class w02_1_operator {
     public static void main(String[] args) {
 
 //     // x + y = z
