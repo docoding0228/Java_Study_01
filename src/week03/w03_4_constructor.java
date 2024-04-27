@@ -11,7 +11,6 @@ public class w03_4_constructor {
     char gear = 'P'; // 기어의 상태, P,R,N,D
     boolean lights; // 자동차 조명의 상태
 
-
     public w03_4_constructor(String modelName) {
         model = modelName;
     }
@@ -51,6 +50,5 @@ public class w03_4_constructor {
     void horn() {
         System.out.println("빵빵");
     }
-
 
 }
