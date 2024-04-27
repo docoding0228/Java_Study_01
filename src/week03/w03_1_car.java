@@ -4,10 +4,8 @@ import org.w3c.dom.ls.LSOutput;
 
 public class w03_1_car {
 
-    // 클래스 멤버 사용 예제
-    static String company = "GENESIS";
     // 1) 고유데이터 영역
-    // String company; // 자동차 회사
+    String company; // 자동차 회사
     //    String model; // 자동차 모델
     String model;
     String color; // 자동차 색
@@ -96,19 +94,9 @@ public class w03_1_car {
 //        }
 //    }
 
-//    w03_1_Tire setTire(w03_1_Tire tireCompany) {
-//        tireCompany.company = "KIA"; // 금호 타이어를 전달 받았지만 강제로 KIA 타이어로 교체
-//        tire = tireCompany;
-//        return tire;
-//    }
-        // 클래스 멤버 사용 예제
-        String getCompany() {
-        return "(주)" + company;
-}
-        static String setCompany(String companyName) {
-        // System.out.println("자동차 모델 확인: " + model); // 인스턴스 필드 사용 불가
-        company = companyName;
-        return company;
+    w03_1_Tire setTire(w03_1_Tire tireCompany) {
+        tireCompany.company = "KIA"; // 금호 타이어를 전달 받았지만 강제로 KIA 타이어로 교체
+        tire = tireCompany;
+        return tire;
     }
-
 }
