@@ -1,4 +1,4 @@
-package week03.w03_4;
+package week03.w03_4_constructor;
 
 public class w03_4_constructor {
 
