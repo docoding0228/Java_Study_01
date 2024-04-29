@@ -15,6 +15,7 @@ public class w03_6_inheritance {
         return model;
     }
 
+
     public void setModel(String model) {
         this.model = model;
     }
