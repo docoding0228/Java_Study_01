@@ -22,6 +22,7 @@ package week03.w03_7;
             car.setDoor(doors);
             car.setHandle(handle);
 
+
             // 등록된 부품 확인하기
             for (w03_7_Tire tire : car.tire) {
                 System.out.println("tire.company = " + tire.company);

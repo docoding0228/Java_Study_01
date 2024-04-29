@@ -10,3 +10,4 @@ public class w03_7_Door {
         this.location = location;
     }
 }
+

@@ -38,6 +38,7 @@ public class w03_7_Car {
         return speed;
     }
 
+
     public double brakePedal() {
         speed = 0;
         return speed;

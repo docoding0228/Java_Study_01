@@ -8,6 +8,4 @@ public class w03_7_Tire {
         this.company = company;
         this.price = price;
     }
-
-
 }
