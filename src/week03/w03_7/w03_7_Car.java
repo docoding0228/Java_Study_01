@@ -1,4 +1,4 @@
-package week03;
+package week03.w03_7;
 
 public class w03_7_Car {
     static final String company = "GENESIS"; // 자동차 회사

@@ -1,4 +1,4 @@
-package week03;
+package week03.w03_1;
 
 public class w03_1_class {
 
@@ -10,7 +10,7 @@ public class w03_1_class {
 
 //        w03_1_car firstcar = new w03_1_car();
 //        w03_1_car twocar = new w03_1_car();
-//        System.out.println(firstcar); // week03.w03_1_car@3b07d329
+//        System.out.println(firstcar); // week03.w03_1.w03_1_car@3b07d329
 
 //        w03_1_car[] carArray = new w03_1_car[3];
 //        w03_1_car firstcar = new w03_1_car();

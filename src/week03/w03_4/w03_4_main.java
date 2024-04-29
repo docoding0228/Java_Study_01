@@ -1,4 +1,4 @@
-package week03;
+package week03.w03_4;
 public class w03_4_main {
 
     public static void main(String[] args) {

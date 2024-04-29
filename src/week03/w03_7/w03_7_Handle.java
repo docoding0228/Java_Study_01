@@ -1,4 +1,4 @@
-package week03;
+package week03.w03_7;
 
 public class w03_7_Handle {
 

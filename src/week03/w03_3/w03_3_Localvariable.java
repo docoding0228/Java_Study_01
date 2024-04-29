@@ -1,4 +1,4 @@
-package week03;
+package week03.w03_3;
 
 public class w03_3_Localvariable {
     public static void main(String[] args) {

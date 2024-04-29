@@ -1,6 +1,4 @@
-package week03;
-
-import org.w3c.dom.ls.LSOutput;
+package week03.w03_1;
 
 public class w03_1_car {
 

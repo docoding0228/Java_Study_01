@@ -1,4 +1,4 @@
-package week03;
+package week03.w03_1;
 
 public class w03_1_Door {
 
