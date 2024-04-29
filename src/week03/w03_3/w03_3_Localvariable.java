@@ -17,6 +17,7 @@ public class w03_3_Localvariable {
     }
 }
 
+
 // 출력
 //main.getNumber() = 2
 //main.getNumber() = 2
