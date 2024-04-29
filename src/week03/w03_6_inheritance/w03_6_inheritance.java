@@ -1,4 +1,4 @@
-package week03.w03_6;
+package week03.w03_6_inheritance;
 
 public class w03_6_inheritance {
 
