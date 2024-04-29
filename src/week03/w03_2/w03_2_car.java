@@ -47,5 +47,6 @@ public class w03_2_car {
         // System.out.println("자동차 모델 확인: " + model); // 인스턴스 필드 사용 불가
         company = companyName;
         return company;
+
     }
 }

@@ -21,5 +21,6 @@ public class w03_2_main {
 
         String companyName2 = car.setCompany("Lamborghini");
         System.out.println("companyName2 = " + companyName2);
+
     }
 }
