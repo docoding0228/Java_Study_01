@@ -1,4 +1,4 @@
-package week03.w03_8_Overriding;
+package week03.w03_8_overriding;
 
     public class w03_8_main {
         public static void main(String[] args) {
