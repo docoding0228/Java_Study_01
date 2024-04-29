@@ -33,6 +33,7 @@ public class w03_5_main {
         System.out.println(car3.returnInstance().color); // car3의 color
         System.out.println(car3.returnInstance().price); // car3의 price
 
+
     }
 }
 
