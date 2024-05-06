@@ -1,4 +1,4 @@
-package java_team;
+package my_team;
 
 package mypk;
 import java.util.Scanner;
