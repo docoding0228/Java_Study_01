@@ -1,6 +1,4 @@
 package my_team;
-
-package mypk;
 import java.util.Scanner;
 
 public class Main {
