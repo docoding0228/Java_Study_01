@@ -1,92 +1,86 @@
 package my_team;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Score {
-    private Student student;
-    private Subject subject;
-    private int score;
+    private String subject;
+    private String scoreRank;
+    private String episode;
+    private String rank;
+    Scanner sc = new Scanner(System.in);
 
-    private static Scanner sc = new Scanner(System.in);
+    // 여기에 들어올것 : subject, episode(회차), 점수
+    public Score(){}
 
-    public Score(Student student, Subject subject, int score) {
-        this.student = student;
+    // 이것도 subject에 넣어서 과목을 입력받아야하고, 입력 받을때 어떻게 받을지? 과목 이름으로 필수/선택인지 구분할수 있게 만들기
+    public void setNumberGrade(String subject){
+        Map<String, ArrayList<String>> gradeMap = new HashMap<>();
+        ArrayList<String> gradeSaved = new ArrayList<>();
         this.subject = subject;
-        this.score = score;
+
+        System.out.println("시험 회차를 입력하세요");
+        gradeSaved.add(sc.next());  // ep 추가
+        System.out.println("점수를 입력하세요");
+        scoreRank = sc.next();
+        gradeSaved.add(scoreRank);  // scoreRank 추가
+        int scoreRankInt = Integer.parseInt(scoreRank);
+        gradeSaved.add(getLetterGrade(scoreRankInt));
+
+        gradeMap.put(subject, gradeSaved);
+        System.out.println(subject);
+        System.out.println(gradeSaved);
     }
 
-    // Getter와 Setter
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Subject getSubject() {
-        return subject;
-    }
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    @Override
-    public String toString() {
-        return "Score{student=" + student + ", subject=" + subject + ", score=" + score + "}";
-    }
-
-    public static void displayScoreView() throws InterruptedException {
-        boolean flag = true;
-        while (flag) {
-            System.out.print("점수 관리를 실행 하시겠습니까? (YES/NO) : ");
-            String settingScore = sc.next();
-            if("no".equals(settingScore)) {
-                break;
+    public String getLetterGrade(int scoreRankInt){
+        // 필수과목 선택과목 으로 if문 바꾸기
+        if(true){
+            switch(scoreRankInt/10){
+                case 10:
+                case 9:
+                    if(scoreRankInt >= 95)
+                        this.rank = "A";
+                    else
+                        this.rank = "B";
+                    break;
+                case 8:
+                    this.rank = "C";
+                    break;
+                case 7:
+                    this.rank = "D";
+                    break;
+                case 6:
+                    this.rank = "F";
+                    break;
+                default:
+                    this.rank = "N";
+                    break;
             }
-            System.out.println("==================================");
-            System.out.println("점수 관리 실행 중...");
-            System.out.println("1. 과목별 시험 회차 및 점수 등록");
-            System.out.println("2. 과목별 회차 점수 수정");
-            System.out.println("3. 특정 과목 회차별 등급 조회");
-            System.out.println("4. 메인 화면 이동");
-            System.out.print("관리 항목을 선택하세요... ");
-
-            // 수강생 번호 입력하고, 학생 - 수강생 일치하는 고유번호
-            // 선택, 필수 if else
-            // 점수 과목 고유번호 1.회차, 2.등급
-            // 점수 입력하는거, 학생 - 과목 목록 -
-
-            int input = sc.nextInt();
-
-            switch (input) {
-                case 1 -> {
-                    System.out.println("과목별 시험 회차 및 점수 등록 기능 호출");
-                    // 과목별 점수 등록 기능 호출
-                }
-                case 2 -> {
-                    System.out.println("과목별 회차 점수 수정 기능 호출");
-                    // 점수 수정 기능 호출
-                }
-                case 3 -> {
-                    System.out.println("특정 과목 회차별 등급 조회 기능 호출");
-                    // 특정 과목 등급 조회 기능 호출
-                }
-                case 4 -> flag = false; // 메인 화면으로 돌아가기
-                default -> {
-                    System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
-                    flag = false;
-                }
+        }else {
+            switch(scoreRankInt/10){
+                case 10:
+                    this.rank = "A";
+                    break;
+                case 9:
+                    this.rank = "B";
+                    break;
+                case 8:
+                    this.rank = "C";
+                    break;
+                case 7:
+                    this.rank = "D";
+                    break;
+                case 6:
+                    this.rank = "F";
+                    break;
+                default:
+                    this.rank = "N";
+                    break;
             }
         }
+        return rank;
     }
+
 }
