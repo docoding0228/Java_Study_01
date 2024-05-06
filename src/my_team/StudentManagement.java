@@ -56,8 +56,8 @@ public class StudentManagement {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1 -> mypk.StudentManagement.registerStudent(); // 수강생 등록
-                case 2 -> mypk.StudentManagement.listStudents();  // 수강생 목록 조회
+                case 1 -> my_team.StudentManagement.registerStudent(); // 수강생 등록
+                case 2 -> my_team.StudentManagement.listStudents();  // 수강생 목록 조회
                 case 3 -> Subject.manageSubjects(); // 수강생 과목 추가
                 case 4 -> running = false; // 메인 화면으로 돌아가기
                 default -> {
@@ -78,4 +78,3 @@ public class StudentManagement {
 //    String studentId2 = sc.next();
 //    return studentId2;
 //}
-
