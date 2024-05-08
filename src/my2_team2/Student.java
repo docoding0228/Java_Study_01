@@ -183,7 +183,7 @@ public class Student {
             switch (choice) {
                 case 1 -> Student.registerStudent(); // 수강생 등록
                 case 2 -> Student.editStudentNameStatus(); // 수강생 정보 수정
-                case 3 -> System.out.println("삭제하기는 아직 미구현된 기능입니다.");
+                case 3 -> Student.deleteStudent(); // 수강생 삭제
                 case 4 -> Student.listStudents();  // 수강생 목록 조회
                 case 5 -> Subject.manageSubjects(); // 수강생 과목 추가
                 case 6 -> Subject.subjectEdit();  //수강생 과목 수정
