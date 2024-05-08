@@ -267,26 +267,7 @@ public class Score {
         }
     }
 
-    // ================ 수강생 삭제로 인한 추가 ================
 
-    public static boolean deleteStudentScores(String studentId) {
-        List<String> keyRemove = new ArrayList<>();
-
-        // scoreMap에서 studentId가 포함된 키를 모두 찾는다.
-        for (String key : scoreMap.keySet()) {
-
-            // studentId + "-" 하는 이유 : 현재 scoreMap 의 형태는,
-            if (key.startsWith(studentId + "-")) {
-                keyRemove.add(key);
-            }
-        }
-        // 찾아낸 키를 scoreMap에서 삭제한다.
-        for (String key : keyRemove) {
-            scoreMap.remove(key);
-        }
-        return !keyRemove.isEmpty(); // 삭제한 키가 있으면 true, 없으면 false
-    }
-    // ================ 수강생 삭제로 인한 추가 ================
     // 점수에 따른 등급을 계산
     public static String calculateGrade(String subject, int score) {
         String category = getCategory(subject);
@@ -482,7 +463,6 @@ public class Score {
         }
     }
 
-
     public static void listAllScoreByCondition(){
         Student studentChackMap = new Student();
         Map<String, Map<String, Student.Condition>> map = studentChackMap.getStudentMap();
@@ -492,8 +472,7 @@ public class Score {
         if (map.containsKey(studentId)) {
             System.out.println( "정상작동");
             switch ()
-            case1:
-            break;
+            case1: break;
             case2:
 
         }
@@ -501,9 +480,6 @@ public class Score {
             System.out.println("해당 ID는 등록되지 않았습니다.");
         }
     }
-
-
-
 
     // 점수 관리 메뉴
     public static void displayScoreView() throws InterruptedException {
