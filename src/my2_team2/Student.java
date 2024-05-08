@@ -186,9 +186,9 @@ public class Student {
                 case 3 -> Student.deleteStudent(); // 수강생 삭제
                 case 4 -> Student.listStudents();  // 수강생 목록 조회
                 case 5 -> Subject.manageSubjects(); // 수강생 과목 추가
-                case 6 -> Subject.subjectEdit();  //수강생 과목 수정
-                case 7 -> Subject.subjectCheck();//수강생 과목 조회
-                case 8 -> Student.conditionList();//상태별 수강생 조회
+                case 6 -> Subject.subjectEdit();  // 수강생 과목 수정
+                case 7 -> Subject.subjectCheck();// 수강생 과목 조회
+                case 8 -> Student.conditionList();// 상태별 수강생 조회
                 case 9 -> running = false; // 메인 화면으로 돌아가기
                 default -> {
                     System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
