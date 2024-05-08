@@ -266,7 +266,26 @@ public class Score {
             }
         }
     }
+    // ================ 수강생 삭제로 인한 추가 ================
 
+    public static boolean deleteStudentScores(String studentId) {
+        List<String> keyRemove = new ArrayList<>();
+
+        // scoreMap에서 studentId가 포함된 키를 모두 찾는다.
+        for (String key : scoreMap.keySet()) {
+
+            // studentId + "-" 하는 이유 : 현재 scoreMap 의 형태는,
+            if (key.startsWith(studentId + "-")) {
+                keyRemove.add(key);
+            }
+        }
+        // 찾아낸 키를 scoreMap에서 삭제한다.
+        for (String key : keyRemove) {
+            scoreMap.remove(key);
+        }
+        return !keyRemove.isEmpty(); // 삭제한 키가 있으면 true, 없으면 false
+    }
+    // ================ 수강생 삭제로 인한 추가 ================
 
     // 점수에 따른 등급을 계산
     public static String calculateGrade(String subject, int score) {
