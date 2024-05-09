@@ -167,7 +167,7 @@ public class Student {
             System.out.println("수강생 관리 실행 중...");
             System.out.println("1. 수강생 등록");
             System.out.println("2. 수강생 수정 및 삭제");
-            System.out.println("3. 수강생 과목 추가");
+            System.out.println("3. 수강생 과목 등록");
             System.out.println("4. 수강생 과목 수정");
             System.out.println("5. 통합 조회");
             System.out.println("6. 메인 화면 이동");
