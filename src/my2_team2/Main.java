@@ -22,7 +22,7 @@ public class Main {
 
             switch (choice) {
                 case 1 -> Student.displayStudentView(); // 수강생 관리
-                case 2 -> Score.displayScoreView();
+                case 2 -> Score.displayScoreView(); // 점수 관리
                 case 3 -> running = false; // 점수 관리
                 default -> {
                     System.out.println("잘못된 입력입니다. 2초 후 되돌아갑니다.");
