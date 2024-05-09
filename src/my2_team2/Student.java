@@ -287,10 +287,10 @@ public class Student {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1 -> editStudentName(studentId);
-                case 2 -> editStudentCondition(studentId);
-                case 3 -> deleteStudent();
-                case 4 -> running = false;
+                case 1 -> editStudentName(studentId); // 수강생 이름 수정
+                case 2 -> editStudentCondition(studentId); // 수강생 상태 수정
+                case 3 -> deleteStudent(); // 수강생 삭제
+                case 4 -> running = false; // 이전으로 돌아가기
                 default -> {
                     System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
                     running = false;
