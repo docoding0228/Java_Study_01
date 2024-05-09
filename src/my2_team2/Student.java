@@ -169,8 +169,7 @@ public class Student {
             System.out.println("2. 수강생 수정 및 삭제");
             System.out.println("3. 수강생 과목 등록");
             System.out.println("4. 수강생 과목 수정");
-            System.out.println("5. 통합 조회");
-            System.out.println("6. 메인 화면 이동");
+            System.out.println("5. 이전으로 돌아가기");
             System.out.print("관리 항목을 선택하세요... ");
 
             int choice = sc.nextInt();
@@ -180,8 +179,7 @@ public class Student {
                 case 2 -> Student.editStudent(); // 수강생 수정 및 삭제
                 case 3 -> Subject.manageSubjects(); // 수강생 과목 추가
                 case 4 -> Subject.subjectEdit();  // 수강생 과목 수정
-                case 5 -> Student.searchAll();// 수강생 과목 조회
-                case 6 -> running = false; // 메인 화면으로 돌아가기
+                case 5 -> running = false;// 수강생 통합 조회
                 default -> {
                     System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
                     running = false;
@@ -206,12 +204,15 @@ public class Student {
         boolean running = true;
         while (running) {
             System.out.println("통합 조회 화면입니다. 조회하고 싶은 내용을 선택하세요.");
-            System.out.println("1. 수강생 목록 조회");
-            System.out.println("2. 상태별 수강생 조회");
-            System.out.println("3. 수강생 과목 조회");
-            System.out.println("4. 이전으로 돌아가기");
+            System.out.println("1. 전체 수강생 조회");
+            System.out.println("2. 수강생 과목 조회");
+            System.out.println("3. 전체 점수 조회");
+            System.out.println("4. 과목별 평균 점수 조회");
+            System.out.println("5. 상태별 수강생 조회");
+            System.out.println("6. 이전으로 돌아가기");
             System.out.print(" 관리 항목을 선택하세요... ");
 
+            // 상태별 수강생 조회
             int choice = sc.nextInt();
 
             switch (choice) {
@@ -228,6 +229,7 @@ public class Student {
     }
 
     // ===================== 수강생 이름 수정 =================================
+
     public static void editStudentName(String studentId) {
         if (!studentMap.containsKey(studentId)) {
             System.out.println("존재하지 않는 ID 입니다.");
@@ -252,7 +254,6 @@ public class Student {
     // ===================== 수강생 이름 수정 =================================
 
 
-    // ===================== 수강생 상태 수정 =================================
     public static void editStudentCondition(String studentId) {
         if (!studentMap.containsKey(studentId)) {
             System.out.println("존재하지 않는 ID 입니다.");
