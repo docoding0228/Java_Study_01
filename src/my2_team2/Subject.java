@@ -11,12 +11,44 @@ public class Subject {
 
     private static Scanner sc = new Scanner(System.in);
 
+    /**
+     * 수강신청된 모든 과목 리스트를 불러오기 위해 사용된다.
+     * @return
+     */
     public static List<String> getAllSubjects() {
         List<String> allSubjects = new ArrayList<>(REQUIRED_SUBJECTS);
         allSubjects.addAll(ELECTIVE_SUBJECTS);
         return allSubjects;
     }
 
+    /**
+     * 선택지에 따른 필요한 메서드를 호출한다.
+     * @throws InterruptedException 예외 발생시 메인 화면으로 이동
+     */
+    public static void settingSubjectView() throws InterruptedException {
+
+        System.out.println("==================================");
+        System.out.println("수강생 과목 관리 실행 중...");
+        System.out.println("1. 수강생 과목 등록");
+        System.out.println("2. 수강생 과목 수정");
+        System.out.println("3. 이전 화면 이동");
+
+        System.out.print("관리 항목을 선택하세요... ");
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1 -> Subject.manageSubjects();
+            case 2 -> Subject.subjectEdit();
+            case 3 -> Student.displayStudentView();
+            default -> System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
+        }
+    }
+
+    /**
+     * 학생이 수강중인 과목을 삭제하기 위한 메서드이다.
+     * @param studentId studentId 를 통해 학생에 접근한 뒤 과목을 삭제한다.
+     * @return 제대로 삭제 되었는지 boolean 값으로 리턴해준다.
+     */
     public static boolean deleteStudentSubjects(String studentId) {
         if (studentSubjects.containsKey(studentId)) {
             studentSubjects.remove(studentId);
@@ -26,6 +58,10 @@ public class Subject {
         }
     }
 
+    /**
+     * 수강신청을 위한 메서드이다.
+     * @throws InterruptedException 예외 발생시 메인 화면으로 이동
+     */
     public static void manageSubjects() throws InterruptedException {
         String studentId = pushID();
 
@@ -116,6 +152,11 @@ public class Subject {
 
     }
 
+    /**
+     * 학생이 수강신청한 과목 리스트를 가져오는 메서드이다.
+     * @param studentId 수강신청된 과목 리스트를 불러오기 위해 studentId 사용
+     * @return 학생이 수강신청한 과목 list 반환
+     */
     public static List<String> getStudentSubjects(String studentId) {
         if (studentSubjects.containsKey(studentId)) {
             return new ArrayList<>(studentSubjects.get(studentId));
@@ -124,14 +165,25 @@ public class Subject {
         }
     }
 
+    /**
+     *
+     * @return 필수과목리스트를 반환
+     */
     public static List<String> getRequiredSubjects() {
         return REQUIRED_SUBJECTS;
     }
 
+    /**
+     *
+     * @return 선택과목 리스트를 반환
+     */
     public static List<String> getElectiveSubjects() {
         return ELECTIVE_SUBJECTS;
     }
 
+    /**
+     * 학생이 수강중인 과목을 print 하기 위해 사용
+     */
     public static void subjectCheck() {
         System.out.println("수강생 ID를 입력해주세요:");
         String studentId = sc.next();
@@ -149,6 +201,9 @@ public class Subject {
         }
     }
 
+    /**
+     * 학생이 과목을 추가할지 삭제할지 선택하는 메서드
+     */
     public static void subjectEdit() {
         System.out.println("수정할 수강생 ID를 입력해주세요.");
         String pushId = sc.next();
