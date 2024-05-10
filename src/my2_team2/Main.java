@@ -5,9 +5,12 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
-        displayMainView(); // 메인 루프 실행
+        displayMainView();
     }
-
+    /**
+     * 메인화면이며 선택지에 따라 필요한 메서드를 불러온다.
+     * @throws InterruptedException 예외 발생시 메인 화면으로 이동
+     */
     public static void displayMainView() throws InterruptedException {
         boolean running = true;
         while (running) {
@@ -22,9 +25,9 @@ public class Main {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1 -> Student.displayStudentView(); // 수강생 관리
-                case 2 -> Score.displayScoreView(); // 점수 관리
-                case 3 -> Student.searchAll();
+                case 1 -> Student.displayStudentView();
+                case 2 -> Score.displayScoreView();
+                case 3 -> Check.Check();
                 case 4 -> running = false;
                 default -> {
                     System.out.println("잘못된 입력입니다. 2초 후 되돌아갑니다.");
