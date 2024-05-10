@@ -1,17 +1,26 @@
 package my2_team2;
 import java.util.*;
 
-
 public class Student {
+    /**
+     * 학생의 상태정보를 입력하기 위한 inner class
+     */
     public static class Condition {
         private String conditionName;
 
         public Condition() {}
 
+        /**
+         * 이미 등록된 condition 을 그대로 유지하기 위해 사용된다.
+         * @param conditionName input 을 condition 으로 저장
+         */
         public void setExistingCondition(String conditionName) {
             this.conditionName = conditionName;
         }
 
+        /**
+         * 새로 상태정보를 입력하기 위한 메서드
+         */
         public void setCondition() {
             while (true) {
                 System.out.print("상태정보를 입력해주세요 (Green, Yellow, Red) : ");
@@ -32,6 +41,10 @@ public class Student {
             }
         }
 
+        /**
+         *
+         * @return 현재 condition 을 반환
+         */
         public String getConditionName() {
             return conditionName;
         }
@@ -40,12 +53,19 @@ public class Student {
     private static Scanner sc = new Scanner(System.in);
     public static Map<String, Map<String, Condition>> studentMap = new HashMap<>();
 
+    /**
+     *
+     * @return 등록된 학생 정보를 반환
+     */
     public static Map<String, Map<String, Student.Condition>> getStudentMap() {
         return studentMap;
     }
 
     private static final List<String> Conditions = Arrays.asList("Green", "Yellow", "Red");
 
+    /**
+     * 학생을 최초 등록하는 메서드
+     */
     public static void registerStudent() {
         String studentId = pushID();
 
@@ -65,6 +85,9 @@ public class Student {
         }
     }
 
+    /**
+     * 등록된 수강생 목록을 불러오는 메서드
+     */
     public static void listStudents() {
         if (studentMap.isEmpty()) {
             System.out.println("등록된 수강생이 없습니다.");
@@ -80,6 +103,9 @@ public class Student {
 
     }
 
+    /**
+     * 특정 상태별 학생들의 리스트를 가져오기 위한 메서드
+     */
     public static void conditionList() {
         for (int i = 0; i < Conditions.size(); i++) {
             System.out.print("[" + (i + 1) + ". " + Conditions.get(i) + "], ");
@@ -118,6 +144,11 @@ public class Student {
 
     }
 
+    /**
+     *
+     * @param studentName 찾고자 하는 학생 이름 input
+     * @return studentName 에 따른 studentId 를 반환
+     */
     public static String getStudentId(String studentName) {
         for (Map.Entry<String, Map<String, Condition>> entry : studentMap.entrySet()) {
             for (Map.Entry<String, Condition> studentInfo : entry.getValue().entrySet()) {
@@ -129,6 +160,10 @@ public class Student {
         return "Unknown";
     }
 
+    /**
+     * 학생 삭제 메서드
+     * @param studentID 삭제하고자 하는 학생의 studentId
+     */
     public static void deleteStudent(String studentID) {
         String studentId = studentID;
 
@@ -142,59 +177,56 @@ public class Student {
     }
 
 
+    /**
+     * 선택지에 따른 필요한 메서드 불러온다
+     * @throws InterruptedException 예외 발생시 메인화면으로 이동
+     */
     public static void displayStudentView() throws InterruptedException {
         System.out.println("==================================");
         System.out.println("수강생 관리 실행 중...");
         System.out.println("1. 수강생 등록");
         System.out.println("2. 수강생 수정 및 삭제");
-        System.out.println("3. 수강생 과목 등록");
-        System.out.println("4. 수강생 과목 수정");
-        System.out.println("5. 이전으로 돌아가기");
+        System.out.println("3. 수강생 과목 관리");
+        System.out.println("4. 이전으로 돌아가기");
         System.out.print("관리 항목을 선택하세요... ");
 
         int choice = sc.nextInt();
+
         switch (choice) {
-            case 1 -> Student.registerStudent(); // 수강생 등록
-            case 2 -> Student.editStudent(); // 수강생 정보 수정
-            case 3 -> Subject.manageSubjects();
-            case 4 -> Subject.subjectEdit();
-            case 5 -> System.out.println(" 이전 화면으로 돌아갑니다." );
+            case 1 -> Student.registerStudent();
+            case 2 -> Student.retouchStudentView();
+            case 3 -> Subject.settingSubjectView();
+            case 4 -> System.out.println("이전 화면으로 돌아갑니다.");
             default -> System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
         }
     }
 
-    public static boolean isRegistered(String studentId) {
-        return studentMap.containsKey(studentId); // 등록 여부 확인
-    }
+    /**
+     * 선택지에 따른 필요한 메서드 불러온다
+     * @throws InterruptedException 예외 발생시 메인화면으로 이동
+     */
+    public static void retouchStudentView() throws InterruptedException {
+        System.out.println("==================================");
+        System.out.println("수강생 수정 중...");
+        System.out.println("1. 수강생 정보 삭제");
+        System.out.println("2. 수강생 정보 수정");
+        System.out.println("3. 이전 화면 이동");
+        System.out.print("관리 항목을 선택하세요... ");
 
-    public static void searchAll()
-    {
-        {
-            System.out.println("통합 조회 화면입니다. 조회하고 싶은 내용을 선택하세요.");
-            System.out.println("1. 전체 수강생 조회");
-            System.out.println("2. 수강생 과목 조회");
-            System.out.println("3. 전체 점수 조회");
-            System.out.println("4. 과목별 평균 점수 조회");
-            System.out.println("5. 상태별 수강생 조회");
-            System.out.println("6. 이전으로 돌아가기");
-            System.out.print(" 관리 항목을 선택하세요... ");
+        int choice = sc.nextInt();
 
-            int choice = sc.nextInt();
-            switch (choice) {
-                case 1 -> Student.listStudents();
-                case 2 -> Subject.subjectCheck();
-                case 3 -> Score.listAllScores();
-                case 4 -> Score.listAllScoresBySubject();
-                case 5 -> System.out.println("아직 구현중인 기능입니다.");
-                case 6 -> System.out.println(" 이전 화면으로 돌아갑니다.");
-                default -> {
-                    System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
-                }
-            }
+        switch (choice) {
+            case 1 -> Student.deleteStudent(pushID());
+            case 2 -> Student.editStudentNameStatus();
+            case 3 -> Student.displayStudentView();
+            default -> System.out.println("잘못된 입력입니다. 메인 화면으로 돌아갑니다.");
         }
     }
 
-
+    /**
+     * 학생의 이름 수정 메서드
+     * @param studentId 수정하고자 하는 학생의 id
+     */
     public static void editStudentName(String studentId) {
         if (!studentMap.containsKey(studentId)) {
             System.out.println("존재하지 않는 ID 입니다.");
@@ -215,6 +247,20 @@ public class Student {
         System.out.println("수강생 이름이 수정되었습니다.");
     }
 
+    /**
+     *
+     * @param studentId 등록되었는지 확인하기 위한 학생의 id
+     * @return 해당 studentId 가 등록 되어있는지 boolean 으로 반환
+     */
+    public static boolean isRegistered(String studentId) {
+        return studentMap.containsKey(studentId);
+    }
+
+    /**
+     * 수강생의 id 를 입력받는 메서드
+     * @return 입력한 studentId 반환
+     * @throws NumberFormatException 0~999 사이의 숫자가 미입력시 발생하는 예외 처리
+     */
     public static String pushID() throws NumberFormatException{
         try {
             System.out.print("수강생 ID를 입력하세요 (001~999): ");
@@ -238,6 +284,9 @@ public class Student {
         return pushID();
     }
 
+    /**
+     * 학생의 이름 정보 수정
+     */
     public static void editStudentNameStatus(){
         String studentId = pushID();
 
@@ -277,6 +326,10 @@ public class Student {
         }
     }
 
+    /**
+     * 학생의 상태정보 수정
+     * @param studentId 상태정보를 수정하고자 하는 학생의 id
+     */
     public static void editStudentCondition(String studentId) {
         if (!studentMap.containsKey(studentId)) {
             System.out.println("존재하지 않는 ID 입니다.");
@@ -289,6 +342,9 @@ public class Student {
         System.out.println("수강생 상태가 수정되었습니다.");
     }
 
+    /**
+     * 선택지에 따른 필요한 메서드를 불러온다.
+     */
     public static void editStudent() {
         String studentId = pushID();
 
@@ -316,6 +372,5 @@ public class Student {
 
             }
         }
-
     }
 }
