@@ -49,6 +49,7 @@ public class Subject {
      * @param studentId studentId 를 통해 학생에 접근한 뒤 과목을 삭제한다.
      * @return 제대로 삭제 되었는지 boolean 값으로 리턴해준다.
      */
+
     public static boolean deleteStudentSubjects(String studentId) {
         if (studentSubjects.containsKey(studentId)) {
             studentSubjects.remove(studentId);

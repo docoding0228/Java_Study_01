@@ -362,6 +362,60 @@ public class Score {
     /**
      * 등록된 모든 점수를 출력하는 메서드이다.
      */
+//    public static void listAllScores() {
+//        Map<String, Map<Integer, Map<String, ScoreEntry>>> groupedScores = new HashMap<>();
+//        for (String key : scoreMap.keySet()) {
+//            String[] parts = key.split("-");
+//            String studentId = parts[0];
+//            String subject = parts[1];
+//
+//            Map<Integer, ScoreEntry> scores = scoreMap.get(key);
+//            for (Map.Entry<Integer, ScoreEntry> entry : scores.entrySet()) {
+//                int attempt = entry.getKey();
+//                ScoreEntry scoreEntry = entry.getValue();
+//                groupedScores.putIfAbsent(studentId, new HashMap<>());
+//                groupedScores.get(studentId).putIfAbsent(attempt, new HashMap<>());
+//                groupedScores.get(studentId).get(attempt).put(subject, scoreEntry);
+//            }
+//        }
+//
+//        for (String studentId : groupedScores.keySet()) {
+//            Map<Integer, Map<String, ScoreEntry>> attempts = groupedScores.get(studentId);
+//
+//            for (int attempt : attempts.keySet()) {
+//                System.out.println("학생 번호: " + studentId + ", 회차: " + attempt + "회차");
+//
+//                Map<String, ScoreEntry> subjects = attempts.get(attempt);
+//
+//                List<String> requiredSubjects = new ArrayList<>();
+//                List<String> electiveSubjects = new ArrayList<>();
+//
+//                for (String subject : subjects.keySet()) {
+//                    String category = getCategory(subject);
+//                    if (category.equals("필수 과목")) {
+//                        requiredSubjects.add(subject);
+//                    } else {
+//                        electiveSubjects.add(subject);
+//                    }
+//                }
+//                requiredSubjects.sort(Comparator.naturalOrder());
+//                electiveSubjects.sort(Comparator.naturalOrder());
+//
+//                System.out.println("================ 필수 과목 ================");
+//                for (String subject : requiredSubjects) {
+//                    ScoreEntry scoreEntry = subjects.get(subject);
+//                    System.out.println("과목: " + subject + " | 점수: " + scoreEntry.getScore() + " | 등급: " + scoreEntry.getGrade());
+//                }
+//
+//                System.out.println("================ 선택 과목 ================");
+//                for (String subject : electiveSubjects) {
+//                    ScoreEntry scoreEntry = subjects.get(subject);
+//                    System.out.println("과목: " + subject + " | 점수: " + scoreEntry.getScore() + " | 등급: " + scoreEntry.getGrade());
+//                }
+//                System.out.println();
+//            }
+//        }
+//    }
     public static void listAllScores() {
         Map<String, Map<Integer, Map<String, ScoreEntry>>> groupedScores = new HashMap<>();
         for (String key : scoreMap.keySet()) {
@@ -382,35 +436,39 @@ public class Score {
         for (String studentId : groupedScores.keySet()) {
             Map<Integer, Map<String, ScoreEntry>> attempts = groupedScores.get(studentId);
 
-            for (int attempt : attempts.keySet()) {
+            for (int attempt = 1; attempt <= 10; attempt++) {
                 System.out.println("학생 번호: " + studentId + ", 회차: " + attempt + "회차");
 
-                Map<String, ScoreEntry> subjects = attempts.get(attempt);
+                Map<String, ScoreEntry> subjects = attempts.getOrDefault(attempt, Collections.emptyMap());
 
-                List<String> requiredSubjects = new ArrayList<>();
-                List<String> electiveSubjects = new ArrayList<>();
+                if (subjects.isEmpty()) {
+                    System.out.println("등록된 과목과 점수가 없습니다.");
+                } else {
+                    List<String> requiredSubjects = new ArrayList<>();
+                    List<String> electiveSubjects = new ArrayList<>();
 
-                for (String subject : subjects.keySet()) {
-                    String category = getCategory(subject);
-                    if (category.equals("필수 과목")) {
-                        requiredSubjects.add(subject);
-                    } else {
-                        electiveSubjects.add(subject);
+                    for (String subject : subjects.keySet()) {
+                        String category = getCategory(subject);
+                        if (category.equals("필수 과목")) {
+                            requiredSubjects.add(subject);
+                        } else {
+                            electiveSubjects.add(subject);
+                        }
                     }
-                }
-                requiredSubjects.sort(Comparator.naturalOrder());
-                electiveSubjects.sort(Comparator.naturalOrder());
+                    requiredSubjects.sort(Comparator.naturalOrder());
+                    electiveSubjects.sort(Comparator.naturalOrder());
 
-                System.out.println("================ 필수 과목 ================");
-                for (String subject : requiredSubjects) {
-                    ScoreEntry scoreEntry = subjects.get(subject);
-                    System.out.println("과목: " + subject + " | 점수: " + scoreEntry.getScore() + " | 등급: " + scoreEntry.getGrade());
-                }
+                    System.out.println("================ 필수 과목 ================");
+                    for (String subject : requiredSubjects) {
+                        ScoreEntry scoreEntry = subjects.get(subject);
+                        System.out.println("과목: " + subject + " | 점수: " + scoreEntry.getScore() + " | 등급: " + scoreEntry.getGrade());
+                    }
 
-                System.out.println("================ 선택 과목 ================");
-                for (String subject : electiveSubjects) {
-                    ScoreEntry scoreEntry = subjects.get(subject);
-                    System.out.println("과목: " + subject + " | 점수: " + scoreEntry.getScore() + " | 등급: " + scoreEntry.getGrade());
+                    System.out.println("================ 선택 과목 ================");
+                    for (String subject : electiveSubjects) {
+                        ScoreEntry scoreEntry = subjects.get(subject);
+                        System.out.println("과목: " + subject + " | 점수: " + scoreEntry.getScore() + " | 등급: " + scoreEntry.getGrade());
+                    }
                 }
                 System.out.println();
             }
@@ -423,7 +481,6 @@ public class Score {
     public static void listAllScoresBySubject() {
         String inputId = pushID();
         List<String> allSubjects = Subject.getStudentSubjects(inputId);
-
 
         System.out.println("등록된 수강 과목 목록: " + allSubjects);
         System.out.print("조회할 과목을 입력하세요: ");
