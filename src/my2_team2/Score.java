@@ -60,8 +60,7 @@ public class Score {
                     editScoresForSubject(); // 회차별 점수 수정
                     break;
                 case 3 :
-                    System.out.println("아직 미구현 기능입니다.");
-//                      listAllScoreByCondition();// 특정 상태 수강생들의 필수과목 평균 등급
+                    // listAllScoreByCondition();// 특정 상태 수강생들의 필수과목 평균 등급
                     break;
                 case 4 :
                     System.out.println("이전 화면으로 돌아갑니다.");
