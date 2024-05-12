@@ -230,7 +230,7 @@ public class Subject {
                     List<String> subjectCategory = null;
                     if (category == 1) {
                         subjectCategory = REQUIRED_SUBJECTS;
-                    } else if (category == 2) {
+                    }else if (category == 2) {
                         subjectCategory = ELECTIVE_SUBJECTS;
                     }
 

@@ -16,6 +16,7 @@ public class Check {
         System.out.println("3. 점수 조회");
         System.out.println("4. 상태별 수강생 조회");
         System.out.println("5. 이전으로 돌아가기");
+        //
 
         System.out.print("관리 항목을 선택하세요... ");
         int choice = sc.nextInt();
